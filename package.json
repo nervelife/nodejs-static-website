@@ -1,0 +1,43 @@
+{
+  "name": "nodejs-static-website",
+  "version": "1.0.0",
+  "description": "Build Static Website With Node.js & Host it for free on Appengine",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "node-sass --include-path scss scss/main.scss   src/css/main.css",
+    "clean": "rimraf public",
+    "copy-src": "copyfiles -u 1 src/**/* public",
+    "copy-bootstrap-css": "copyfiles -u 4 node_modules/bootstrap/dist/css/bootstrap.min.* public/css",
+    "copy-bootstrap-js": "copyfiles -u 4 node_modules/bootstrap/dist/js/bootstrap.min.* public/js",
+    "copy-jquery": "copyfiles -u 3 node_modules/jquery/dist/jquery.min.js public/js",
+    "copy-assets": "copyfiles -u 1 assets/**/* public/assets",
+    "minify-css": "cleancss --level=1 --output public/css/main.min.css src/css/main.css",
+    "minify": "html-minifier --input-dir src --output-dir public --file-ext html --remove-comments --collapse-whitespace --minify-js true --minify-css true",
+    "build-bootstrap": "npm run copy-bootstrap-css && npm run copy-bootstrap-js && npm run copy-jquery",
+    "build": "npm run copy-assets && npm run build-bootstrap && npm run build-css && npm run copy-src && npm run minify && npm run minify-css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nervelife/nodejs-static-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nervelife/nodejs-static-website/issues"
+  },
+  "homepage": "https://github.com/nervelife/nodejs-static-website#readme",
+  "dependencies": {
+    "bootstrap": "^4.6.0",
+    "express": "^4.17.1",
+    "jquery": "^3.5.1"
+  },
+  "devDependencies": {
+    "clean-css": "^5.0.1",
+    "html-minifier": "^4.0.0",
+    "node-sass": "^5.0.0",
+    "nodemon": "^2.0.7"
+  }
+}

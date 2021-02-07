@@ -1,0 +1,408 @@
+
+$primary: rgb(41,98,255);
+$accent: rgb(0, 200, 83);
+$accent-shadow:  rgb(20, 255, 118);
+
+$light-text: #fff;
+$dark-text: #202020;
+$highlight-text: rgba(0, 200, 83, 0.6);
+$hero-shadow-text: 0 3px #0000005b;
+$hero-sub-text: #dadada;
+
+$menu-bg: rgba(0, 0, 0, 0.8);
+$hero-bg: rgba(0, 0, 0, 0.4);
+$navbar-bg: rgba(0, 0, 0, 0.2);
+$section-bg: linear-gradient(180deg, rgba(255,255,255,1) 20%, rgba(233,230,230,1) 100%);
+$footer-section-bg: rgba(233,230,230,1);
+
+$h1-lg-size: 3.5rem;
+$h1-lg-weight: 800;
+$h1-lg-spacing: -0.025em;
+
+$h1-sm-size: 2.5rem;
+$h1-sm-weight: 800;
+$h1-sm-spacing: -0.025em;
+
+$f0-lg-size: 0.95rem;
+$f0-lg-weight: 200;
+
+$f0-sm-size: 0.75rem;
+$f0-sm-weight: 100;
+
+$f1-lg-size: 2.0rem;
+$f1-lg-weight: 600;
+$f1-lg-spacing: -0.01em;
+
+$f1-sm-size: 1.5rem;
+$f1-sm-weight: 600;
+$f1-sm-spacing: -0.01em;
+
+$f2-lg-size: 1.8rem;
+$f2-lg-weight: 300;
+$f2-lg-spacing: -0.01em;
+
+$f2-sm-size: 1.2rem;
+$f2-sm-weight: 300;
+$f2-sm-spacing: -0.01em;
+
+@mixin mixin-bg-blur($blur, $brightness) {
+    background: $navbar-bg!important;
+    backdrop-filter: blur($blur) brightness($brightness) opacity(1)!important;
+    -webkit-backdrop-filter: blur($blur) brightness($brightness) opacity(1)!important;
+}
+
+@keyframes tonext {
+    75% {
+        left: 0;
+
+    }
+    95% {
+        left: 100%;
+    }
+    98% {
+        left: 100%;
+    }
+    99% {
+        left: 0;
+    }
+}
+  
+@keyframes tostart {
+    75% {
+        left: 0;
+    }
+    95% {
+        left: -600%;
+    }
+    98% {
+        left: -600%;
+    }
+    99% {
+        left: 0;
+    }
+}
+  
+@keyframes snap {
+    96% {
+        scroll-snap-align: center;
+    }
+    97% {
+        scroll-snap-align: none;
+    }
+    99% {
+        scroll-snap-align: none;
+    }
+    100% {
+        scroll-snap-align: center;
+    }
+}
+
+@keyframes wiggle {
+	0% {
+		padding-top: 20px;
+	}
+
+	50% {
+		padding-top: 28px;
+	}
+
+	100% {
+		padding-top: 20px;
+	}
+}
+
+@media (min-width: 530px) {
+    .h1-lg-fluid {
+        font-size: $h1-lg-size!important;
+        font-weight: $h1-lg-weight!important;
+        letter-spacing: $h1-lg-spacing!important;
+        margin-bottom: 1rem!important;
+    }
+
+    .f0-lg-fluid {
+        font-size: $f0-lg-size!important;
+        font-weight: $f0-lg-weight!important;
+        letter-spacing: 0.2rem!important;
+        margin-bottom: 1rem!important;
+    }
+
+    .f1-lg-fluid {
+        font-size: $f1-lg-size!important;
+        font-weight: $f1-lg-weight!important;
+        letter-spacing: $f1-lg-spacing!important;
+        margin-bottom: 1rem!important;
+    }
+
+    .f2-lg-fluid {
+        font-size: $f2-lg-size!important;
+        font-weight: $f2-lg-weight!important;
+        letter-spacing: $f2-lg-spacing!important;
+        margin-bottom: 1rem!important;
+    }
+
+    .btn-xl {
+        line-height: 2.3!important;
+        width: 380px;
+        height: 88px;
+
+        img {
+            width: 72px;
+            padding: 8px;
+            margin-top: -13px;
+            margin-left: -10px;
+            transition: all .35s ease-in-out;
+        }
+    }
+
+}
+
+@media (max-width: 529px) {
+    .h1-sm-fluid {
+        font-size: $h1-sm-size!important;
+        font-weight: $h1-sm-weight!important;
+        letter-spacing: $h1-sm-spacing!important;
+        margin-bottom: 1rem!important;
+    }
+
+    .f0-sm-fluid {
+        font-size: $f0-sm-size!important;
+        font-weight: $f0-sm-weight!important;
+        letter-spacing: 0.15rem!important;
+        margin-bottom: 1rem!important;
+    }
+
+    .f1-sm-fluid {
+        font-size: $f1-sm-size!important;
+        font-weight: $f1-sm-weight!important;
+        letter-spacing: $f1-sm-spacing!important;
+        margin-bottom: 1rem!important;
+    }
+
+    .f2-sm-fluid {
+        font-size: $f2-sm-size!important;
+        font-weight: $f2-sm-weight!important;
+        letter-spacing: $f2-sm-spacing!important;
+        margin-bottom: 1rem!important;
+    }
+
+    .btn-sm {
+        line-height: 1.0!important;
+        width: 290px;
+        height: 58px;
+    
+        img {
+            width: 58px;
+            padding: 6px;
+            margin-top: -6px;
+            margin-left: -4px;
+            transition: all .35s ease-in-out;
+        }
+    }
+
+}
+
+* {
+    font-family: 'Raleway', sans-serif;
+}
+
+body {
+    color: $dark-text;
+}
+
+html, body,.root {
+    height: 100%;
+}
+body, .root {
+    display: flex;
+    flex-direction: column;
+}
+
+.text-light {
+    color: $light-text;
+}
+
+.text-dark {
+    color: $dark-text;
+}
+
+.text-gray {
+    color: $hero-sub-text;
+}
+
+.text-primary {
+    color: $primary;
+}
+
+.text-gradient {
+    background: linear-gradient(-70deg, $primary, $accent)!important;
+    background: -webkit-linear-gradient(-70deg, $primary, $accent)!important;
+    background-clip: text!important;
+    -webkit-background-clip: text!important;
+    -webkit-text-fill-color: transparent!important;
+}
+
+.wrapper {
+    flex: 1 0 auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+
+    background-image: url('/assets/images/Server_blend_1361x740.jpg')!important;
+
+    &:after {
+        content:"";
+        position:fixed; /* stretch a fixed position to the whole screen */
+        top:0;
+        height:100vh; /* fix for mobile browser address bar appearing disappearing */
+        left:0;
+        right:0;
+        z-index:-1; /* needed to keep in the background */
+        -webkit-background-size: cover!important;
+        -moz-background-size: cover!important;
+        -o-background-size: cover!important;
+        background-size: cover!important;
+  }
+}
+
+@supports ( -webkit-touch-callout : none) {
+    .wrapper {
+        background-attachment:scroll!important;
+    }
+}
+    
+@supports not ( -webkit-touch-callout : none) {
+    .wrapper {
+        background-attachment: fixed!important;
+    }
+}
+
+.navbar-height {
+    height: 116px;
+}
+
+.navbar-logo img {
+    margin-top: -8px;
+}
+
+.bg-blur {
+    @include mixin-bg-blur(19px, 1.6);
+    transition: all 1s ease-in-out;
+}
+
+.bg-primary {
+    background-color: $primary;
+    transition: all 1s ease-in-out;
+}
+
+.topLine {
+    position: absolute;
+    top: 0;
+    z-index: 10000;
+    background: $highlight-text;
+    width: 100%;
+    color: $light-text;
+}
+
+.HomeSlider {
+    position: relative;
+    height: 100vh;
+}
+
+.overflow-hidden {
+    overflow: hidden!important;
+}
+
+@media (max-height: 570px) {
+    .HomeSliderContent {
+        top: 260px;
+    }
+    .navbar-height {
+        height: 68px!important;
+    }
+}
+
+.HomeSliderContent {
+    position: absolute;
+    
+    margin-right: -50%;
+    padding: 25px;
+    
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+    
+    max-width: 1080px;
+
+    background: $hero-bg;
+
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+
+    scrollbar-color: transparent transparent; /* thumb and track color */
+    scrollbar-width: 0px;
+
+    @include mixin-bg-blur(4px, 0.6);
+}
+
+.home-slider-viewport {
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+
+    align-items: center;
+
+    &::-webkit-scrollbar {
+        width: 0;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: transparent;
+        border: none;
+    }
+}
+
+.home-slider-slide {
+    position: relative;
+    flex: 0 0 100%;
+    width: 100%;
+
+    &:last-child {
+        .slide-snapper {
+            animation-name: tostart, snap;
+        }
+    }
+    animation-timing-function: ease;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+.slide-snapper {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    scroll-snap-align: center;
+
+    animation-name: tonext, snap;
+    animation-timing-function: ease;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
