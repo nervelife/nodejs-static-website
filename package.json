@@ -16,7 +16,8 @@
     "minify": "html-minifier --input-dir src --output-dir public --file-ext html --remove-comments --collapse-whitespace --minify-js true --minify-css true",
     "build-bootstrap": "npm run copy-bootstrap-css && npm run copy-bootstrap-js && npm run copy-jquery",
     "build": "npm run copy-assets && npm run build-bootstrap && npm run build-css && npm run copy-src && npm run minify && npm run minify-css",
-    "watch-css": "nodemon -e scss -x \"npm run build-css\""
+    "watch-css": "nodemon -e scss -x \"npm run build-css\"",
+    "deploy": "gcloud app deploy app.yaml"
   },
   "repository": {
     "type": "git",

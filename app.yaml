@@ -1,0 +1,96 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+service: www
+
+default_expiration: 1m
+
+handlers:
+
+- url: /(.*\.css)
+  mime_type: text/css
+  static_files: public/\1
+  upload: public/(.*\.css)
+
+- url: /(.*\.html)
+  mime_type: text/html
+  static_files: public/\1
+  upload: public/(.*\.html)
+
+- url: /(.*\.ico)
+  mime_type: image/x-icon
+  static_files: public/\1
+  upload: public/(.*\.ico)
+
+- url: /(.*\.js)
+  mime_type: text/javascript
+  static_files: public/\1
+  upload: public/(.*\.js)
+
+- url: /(.*\.svg)
+  mime_type: image/svg+xml
+  static_files: public/\1
+  upload: public/(.*\.(svg|svgz))
+
+- url: /(.*\.txt)
+  mime_type: text/plain
+  static_files: public/\1
+  upload: public/(.*\.txt)
+
+# image files
+- url: /(.*\.(bmp|gif|ico|jpeg|jpg|png))
+  static_files: public/\1
+  upload: public/(.*\.(bmp|gif|ico|jpeg|jpg|png))
+
+# index files
+- url: /(.+)/
+  static_files: public/\1/index.html
+  upload: public/(.+)/index.html
+
+- url: /(.+)
+  static_files: public/\1/index.html
+  upload: public/(.+)/index.html
+
+# site root
+- url: /
+  secure: always
+  static_files: public/index.html
+  upload: public/index.html
+
+- url: /.*
+  secure: always
+  redirect_http_response_code: 301
+  script: auto
+
+
+# Recommended file skipping declaration from the GAE tutorials
+skip_files:
+  - ^index\.js
+  - ^dev\.js
+  - ^(.*/)?app\.yaml
+  - ^(.*/)?dispatch\.yaml
+  - ^(.*/)?app\.yml
+  - ^(.*/)?#.*#
+  - ^(.*/)?.*~
+  - ^(.*/)?.*\.py[co]
+  - ^(.*/)?.*/RCS/.*
+  - ^(.*/)?\..*
+  - ^(.*/)?tests$
+  - ^(.*/)?test$
+  - ^(.*/)?Dockerfile
+  - ^(.*/)?nginx.conf
+  - ^(.*/)?package\.json
+  - ^(.*/)?package-lock\.json
+  - ^test/(.*/)?
+  - ^COPYING.LESSER
+  - ^README\..*
+  - \.gitignore
+  - ^\.git/.*
+  - \.*\.lint$
+  - ^fabfile\.py
+  - ^testrunner\.py
+  - ^grunt\.js
+  - ^node_modules/(.*/)?
+  - ^LICENSE
+  - ^bin/(.*/)?
